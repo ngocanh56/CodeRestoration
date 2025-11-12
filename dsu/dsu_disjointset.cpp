@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-int n;
+int n, m, k, t;
 const int N=1e5 + 7;
-int parent[2*N], siz[2*N];
+const ll mod = 998244353;
+int parent[N], siz[N];
 
 int find_set(int v) {
     if(v == parent[v]) return v;
@@ -22,8 +23,8 @@ void union_set(int u, int v) {
         siz[u] += siz[v];
     }
 }
-void init() {
-    for(int i=0;i<n;i++) {
+int init() {
+    for(int i=1;i<=n;i++) {
         parent[i] = i;
         siz[i] = 1;
     }    
@@ -32,21 +33,17 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // freopen(".inp", "r", stdin);
-    int q;
+    int n,q;
     cin>>n>>q;
 
-    init();
     for(int i=1;i<=q;i++) {
-        int u,v,t;
+        int u,v;
         cin>>t>>u>>v;
         if(t) {
-            //cout<<u<<" "<<v<<'\n';
-            //cout<<find_set(u)<<" "<<find_set(v)<<'\n';
+            cin>>u>>v;
             if(find_set(u) == find_set(v))      
                 cout<<1<<'\n';
             else cout<<0<<'\n';
-        } else {
-            union_set(u,v);
         }
 
     }
