@@ -22,7 +22,7 @@ void union_set(int u, int v) {
         siz[u] += siz[v];
     }
 }
-int init() {
+void init() {
     for(int i=0;i<n;i++) {
         parent[i] = i;
         siz[i] = 1;
